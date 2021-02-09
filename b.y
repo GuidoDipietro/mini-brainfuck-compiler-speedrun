@@ -5,6 +5,7 @@ int yylex();
 void yyerror(char* s);
 
 char* arr;
+//char* arr = NULL; shouldve been
 %}
 
 %%
@@ -33,5 +34,7 @@ void yyerror(char* s){
 int main(){
 	arr = malloc(ARR_SIZE);
 	init_arr();
+	// arr = calloc(ARR_SIZE, 1); shouldve been, to save the init_arr() step
+	// where's the free? lol nice leacc
 	return yyparse();
 }
